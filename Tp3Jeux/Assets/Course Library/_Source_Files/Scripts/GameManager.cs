@@ -33,14 +33,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        mainMenuScreen.SetActive(true);
-        /*StartCoroutine(SpawnTargets());
+        //mainMenuScreen.SetActive(true);
+        StartCoroutine(SpawnTargets());
 
         instance = this;
         
         UpdateScore();
         UpdateLives();
-        gameOverScreen.SetActive(false);*/
+        gameOverScreen.SetActive(false);
     }
 
 

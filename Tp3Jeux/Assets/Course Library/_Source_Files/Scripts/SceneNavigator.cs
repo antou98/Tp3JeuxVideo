@@ -9,24 +9,29 @@ public class SceneNavigator : MonoBehaviour
     
 
     void Start(){
-        OpenMenu();
+        if (SceneManager.GetActiveScene().name != "_Base")
+        {
+            OpenMenu();
+        }
     }
     
 
 
-    static void OpenMenu(){
+     public static void OpenMenu(){
          SceneManager.LoadScene("_Base");
+         
     }
 
 
 
-    static void OpenGame(){
+    public static void OpenGame(){
         SceneManager.LoadScene("Game");
         
     }
 
-    static void fermerJeu(){
-
+    public static void FermerJeu(){
+        SceneManager.UnloadSceneAsync("_Base");
+        Application.Quit();
     }
 
 
