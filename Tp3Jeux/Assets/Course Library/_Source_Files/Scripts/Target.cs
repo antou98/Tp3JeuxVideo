@@ -30,7 +30,9 @@ public class Target : MonoBehaviour
         
     //Called when Target is Clicked
     private void OnMouseDown(){
-        Instantiate(particle, transform.position, Quaternion.identity);
+        if (GameSettings.ActivateParticule) {
+            Instantiate(particle, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
 
         if (isBad) GameManager.instance.UpdateLives(-1);

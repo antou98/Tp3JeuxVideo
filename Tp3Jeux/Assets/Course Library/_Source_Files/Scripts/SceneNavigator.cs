@@ -14,19 +14,15 @@ public class SceneNavigator : MonoBehaviour
             OpenMenu();
         }
     }
-    
-
 
      public static void OpenMenu(){
          SceneManager.LoadScene("_Base");
-         
     }
 
 
 
     public static void OpenGame(){
         SceneManager.LoadScene("Game");
-        
     }
 
     public static void FermerJeu(){
