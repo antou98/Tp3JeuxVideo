@@ -6,7 +6,7 @@ public class GameSettings : MonoBehaviour
     /// Volume du jeu
     /// </summary>
     public static float VolumeMusique {
-        get => PlayerPrefs.GetFloat("VolumeMusique", defaultValue: 1f);
+        get => PlayerPrefs.GetFloat("VolumeMusique", defaultValue: 10f);
         set => PlayerPrefs.SetFloat("VolumeMusique", value);
     }
 
@@ -23,7 +23,7 @@ public class GameSettings : MonoBehaviour
     /// </summary>
     public static int Difficulte
     {
-        get => PlayerPrefs.GetInt("Difficulte", defaultValue: 0);
+        get => PlayerPrefs.GetInt("Difficulte", defaultValue: 1);
         set => PlayerPrefs.SetInt("Difficulte", value);
     }
 

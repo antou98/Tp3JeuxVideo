@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         //mainMenuScreen.SetActive(true);
         StartCoroutine(SpawnTargets());
-        gameMusic.volume = GameSettings.VolumeMusique;
+        gameMusic.volume = GameSettings.VolumeMusique/10;
 
         instance = this;
         
