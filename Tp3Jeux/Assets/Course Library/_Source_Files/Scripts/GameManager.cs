@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -61,10 +62,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 1f - Time.timeScale;
+            OuvrirPause();
         } 
+    }
+
+    private void OuvrirPause() {
+        Time.timeScale = 1f - Time.timeScale;
+        //TODO empecher le joueur de cliquer sur des elements pendant la pause
     }
 
     public void SetPause(bool val = true)

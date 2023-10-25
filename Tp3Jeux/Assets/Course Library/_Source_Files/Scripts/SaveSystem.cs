@@ -28,14 +28,28 @@ public class SaveSystem : MonoBehaviour
 
         var path = Path.Combine(Application.persistentDataPath,$"game.save");
 
-        if(File.Exists(path)){
-            var serializedSave= File.ReadAllText(path);
+        if (CheckHasState()) {
+            var serializedSave = File.ReadAllText(path);
             return JsonConvert.DeserializeObject<GameState>(serializedSave);
         }
-        else{
+        else
+        {
             return null;
         }
 
+    }
+
+    public static bool CheckHasState() {
+        var path = Path.Combine(Application.persistentDataPath, $"game.save");
+
+        bool retour = false;
+
+        if (File.Exists(path))
+        {
+            var serializedSave = File.ReadAllText(path);
+            retour = true;
+        }
+        return retour;
     }
 
     public class GameState{
