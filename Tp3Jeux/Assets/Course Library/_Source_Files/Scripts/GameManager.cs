@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         //Get save
         getSaveDatas();
 
-        spawnRate = spawnRate * difficulte;
+        spawnRate *= difficulte;
         StartCoroutine(SpawnTargets());
         gameMusic.volume = GameSettings.VolumeMusique/10;
 
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
             score = gameState.score;
             nLives = gameState.nbVie;
-            difficulte += gameState.difficulte;
+            difficulte = gameState.difficulte;
 
         }
     }

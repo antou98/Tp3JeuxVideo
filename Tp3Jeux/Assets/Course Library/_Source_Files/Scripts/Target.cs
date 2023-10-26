@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Target : MonoBehaviour
 {
@@ -30,13 +31,17 @@ public class Target : MonoBehaviour
         
     //Called when Target is Clicked
     private void OnMouseDown(){
-        if (GameSettings.ActivateParticule) {
-            Instantiate(particle, transform.position, Quaternion.identity);
-        }
-        Destroy(gameObject);
 
-        if (isBad) GameManager.instance.UpdateLives(-1);
-        else GameManager.instance.UpdateScore(scoreValue);
+        if (!EventSystem.current.IsPointerOverGameObject()) {
+            if (GameSettings.ActivateParticule)
+            {
+                Instantiate(particle, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+
+            if (isBad) GameManager.instance.UpdateLives(-1);
+            else GameManager.instance.UpdateScore(scoreValue);
+        }
     }
 
     //Called when Target reaches the bottom of the screen
