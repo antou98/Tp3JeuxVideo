@@ -26,7 +26,10 @@ public class SceneNavigator : MonoBehaviour
     }
 
     public static void FermerJeu(){
-        SceneManager.UnloadSceneAsync("_Base");
+        
+        //quand dans unity
+        UnityEditor.EditorApplication.isPlaying = false;
+
         Application.Quit();
     }
 

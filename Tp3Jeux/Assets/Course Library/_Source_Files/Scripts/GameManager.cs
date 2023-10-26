@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     public int score = 0;
-    private int nLives = 3;
-    private int difficulte;
+    public int nLives = 3;
+    public int difficulte;
 
     public static GameManager instance;
 
@@ -30,12 +30,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject mainMenuScreen;
 
+    public GameObject pausePanel;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
-
         //Difficulte
         difficulte = GameSettings.Difficulte;
 
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         UpdateLives();
         gameOverScreen.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     private void getSaveDatas()
@@ -89,12 +91,7 @@ public class GameManager : MonoBehaviour
 
     private void OuvrirPause() {
         Time.timeScale = 1f - Time.timeScale;
-        //TODO empecher le joueur de cliquer sur des elements pendant la pause
-    }
-
-    public void SetPause(bool val = true)
-    {
-        Time.timeScale = val ? 1f : 0f;
+        pausePanel.SetActive(!pausePanel.active);
     }
 
     public void UpdateScore(int scoreToAdd = 0)
