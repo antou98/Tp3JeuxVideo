@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using UnityEngine.EventSystems;
+using static SaveSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     private int nLives = 3;
+    private int difficulte;
 
     public static GameManager instance;
 
@@ -34,7 +36,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        //mainMenuScreen.SetActive(true);
+        //Difficulte
+        difficulte = GameSettings.Difficulte;
+
+        //Get save
+        getSaveDatas();
+
+        spawnRate = spawnRate * difficulte;
         StartCoroutine(SpawnTargets());
         gameMusic.volume = GameSettings.VolumeMusique/10;
 
@@ -45,6 +53,17 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
+    private void getSaveDatas()
+    {
+        if(SaveSystem.CheckHasState()){
+            GameState gameState = SaveSystem.CheckAndLoadGameStateData();
+
+            score = gameState.score;
+            nLives = gameState.nbVie;
+            difficulte += gameState.difficulte;
+
+        }
+    }
 
     public void RestartGame()
     {

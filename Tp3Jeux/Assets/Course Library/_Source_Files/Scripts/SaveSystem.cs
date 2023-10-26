@@ -52,6 +52,14 @@ public class SaveSystem : MonoBehaviour
         return retour;
     }
 
+    public static void DeleteSave() {
+        if (CheckHasState())
+        {
+            var path = Path.Combine(Application.persistentDataPath, $"game.save");
+            File.Delete(path);
+        }
+    }
+
     public class GameState{
 
         public int score;

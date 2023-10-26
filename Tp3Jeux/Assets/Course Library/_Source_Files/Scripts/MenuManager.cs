@@ -17,7 +17,6 @@ public class MenuManager : MonoBehaviour
         
         gameState = SaveSystem.CheckAndLoadGameStateData();
 
-
         if(gameState==null){
             hasGameState = false;
             buttonContinuer.SetActive(false);
@@ -35,6 +34,8 @@ public class MenuManager : MonoBehaviour
     }
 
     public void nouvellePartie(){
+        SaveSystem.DeleteSave();
+        hasGameState=false;
         SceneNavigator.OpenGame();
     }
 
