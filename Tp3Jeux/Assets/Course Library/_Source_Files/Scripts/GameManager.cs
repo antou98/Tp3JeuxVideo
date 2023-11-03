@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     private void OuvrirPause() {
         Time.timeScale = 1f - Time.timeScale;
-        pausePanel.SetActive(!pausePanel.active);
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 
     public void UpdateScore(int scoreToAdd = 0)

@@ -6,7 +6,7 @@ public class PausePanel : MonoBehaviour
 {
 
     public void OpenPausePanel(){
-        if(!gameObject.active){
+        if(!gameObject.activeSelf){
              gameObject.SetActive(true);
         }else
         {

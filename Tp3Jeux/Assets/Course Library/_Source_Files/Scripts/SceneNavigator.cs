@@ -28,7 +28,6 @@ public class SceneNavigator : MonoBehaviour
     public static void FermerJeu(){
         
         //quand dans unity
-        UnityEditor.EditorApplication.isPlaying = false;
 
         Application.Quit();
     }
